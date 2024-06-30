@@ -1,0 +1,203 @@
+﻿@using Models
+@using Newtonsoft.Json.Linq;
+@using System.Text.RegularExpressions;
+@using System.Web.Script.Serialization;
+@using Newtonsoft.Json;
+@model ThemeSettingsModel
+@{
+  
+    <script type="text/javascript" src="/GlobalItems/js/jquery-1.11.1.min.js"></script>
+
+
+    @*<div class="social">
+
+        <div class="socialsnetwork">
+            <a data-position="" hidden="hidden" data-propertysocials="Google-Plus" href=""><i class="mdi mdi-google-plus"></i></a>
+            <a data-position="" hidden="hidden" data-propertysocials="FaceBook" href=""><i class="mdi mdi-facebook"></i></a>
+            <a data-position="" hidden="hidden" data-propertysocials="Twitter" href=""><i class="mdi mdi-twitter"></i></a>
+            <a data-position="" hidden="hidden" data-propertysocials="Telegram" href=""><i class="mdi mdi-telegram"></i></a>
+            <a data-position="" hidden="hidden" data-propertysocials="Linkedin" href=""><i class="mdi mdi-linkedin"></i></a>
+            <a data-position="" hidden="hidden" data-propertysocials="Instagram" href=""><i class="mdi mdi-instagram"></i></a>
+
+        </div>
+    </div>*@
+
+    Layout = null;
+    /*  List  result = new jsonthemesettingsformat()*/
+
+
+    if (Model.ThemesSettings != null || !string.IsNullOrEmpty(Model.FilePath))
+    {
+
+        var m = Model.ThemesSettings.Settings;
+        <input id="data" type="hidden" value="@m" />
+    //dynamic d = System.Web.Helpers.Json.Decode(m);
+    dynamic input = JsonConvert.DeserializeObject(m);
+
+
+    @*foreach (var item in input.Promotions)
+    {
+
+        <a data-position=""  data-propertysocials="@item.Title" href="@item.Url"><i class="mdi mdi-google-plus"></i></a>
+
+
+
+    }*@
+
+    if (input == null)
+    {
+        return;
+    }
+
+}
+else
+{
+    return;
+}
+
+}
+<script>
+
+  
+
+      //  var JsonData = $("#data").val();
+      //alert(JsonData);
+      //  var items = $.parseJSON(JsonData);
+      
+      //  jQuery.each(items, function (index, itemData) {
+      //      alert(index);
+      //  });
+        ShowSocials();
+        SectionsSettings();
+        swap();
+       // GetAllPromotions();
+        function ShowSocials() {//نمایش شبکه های اجتماعی
+            // alert("Show socials");
+            var Element;
+            var elementSort;
+      
+            var JsonData = $("#data").val();
+            var d = $.parseJSON(JsonData);
+            for (var i = 0; i < d.SocialsNetwork.length; i++) {
+                var SocialName = (d.SocialsNetwork[i].SocialNetworkName);
+                var socoialLink = (d.SocialsNetwork[i].SocialNetworkLink);
+                var DataSort = (d.SocialsNetwork[i].DataSort);
+                //  alert(socoialLink);
+
+                if (socoialLink != "") {
+                    //Element = $("[data-propertysocials='" + $.trim(SocialName) + "']");
+                    //elementSort = $("[data-social-position='" + $.trim(SocialName) + "']");
+
+                    //$("[data-propertysocials='" + $.trim(SocialName) + "']").attr('data-social-position', DataSort)
+                    $("[data-propertysocials='" + $.trim(SocialName).trim() + "']").attr('data-position', DataSort)
+                    $("[ data-socialproperty-href='" + $.trim(SocialName).trim() + "']").prop('href', socoialLink)
+
+                }
+                else {
+                    $("[data-propertysocials='" + $.trim(SocialName).trim() + "']").remove();
+
+                }
+
+
+            }
+        
+        }
+    
+    
+
+    
+    function SectionsSettings() {
+        var Element;
+      debugger;
+        var JsonData = $("#data").val();
+        var d = $.parseJSON(JsonData);
+        for (var i = 0; i < d.Sections.length; i++) {
+            var Show = (d.Sections[i].Show);
+            //alert(Show);
+            var SectionSort = (d.Sections[i].SectionSort);
+            //alert(SectionSort);
+            var SectionClass = (d.Sections[i].SectionClass);
+           // alert(SectionClass);
+         //   debugger;
+          //  alert(SectionClass);
+            $('body').find('section[data-sectionid=' + SectionClass.trim() + ']').attr("data-position", SectionSort);
+            if (Show==false) {
+            $('[data-sectionid=' + '"' + SectionClass.trim() + '"' + ']').find('[data-enabled="enabled"]').hide();
+            }
+            else {
+                $('[data-sectionid=' + '"' + SectionClass.trim() + '"' + ']').find('[data-enabled="enabled"]').show();
+            }
+
+        }
+    }
+
+    function GetAllPromotions() {
+        debugger;
+        var Element;
+        //debugger;
+        var JsonData = $("#data").val();
+        var d = $.parseJSON(JsonData);
+        for (var i = 0; i < d.Promotions.length; i++) {
+            var Desc = (d.Promotions[i].Description);
+            var Title = (d.Promotions[i].Title);
+            var Image = (d.Promotions[i].Image);
+            var Url = (d.Promotions[i].Url);
+           // alert(Title);
+            $("[data-promotioncontain='promotioncontain']").append('<span>' + Title + '</span>');
+            
+            //$("div.promotioncrousel").append("<div class='item'>" +
+            //        "<div class='productItem'>" +
+            //            "<div class='row'>" +
+            //                "<div class='col-sm-5'>" +
+            //                   " <a href=''><strong data-limitedText='20'>" + Title + "</strong></a>" +
+            //                   " <p data-limitedText='470'>" + Desc + "</p>" +
+            //                "</div>" +
+            //               " <div class='col-sm-7'>" +
+            //                    "<a href='" + Url
+            //                    + "'>" +
+            //                       " <img src='" + Image + "' alt='' title'' />" +
+            //                   " </a>" +
+            //              "  </div>" +
+            //            "</div>" +
+            //       " </div>" +
+            //    "</div>");
+
+
+
+
+        }
+
+    }
+
+
+    function swap() {
+     
+        var elems = document.querySelectorAll('[social-container]');
+
+        elems.forEach(function (el) {
+
+            $(el).find("[data-propertysocials]").sort(sort_Socials).appendTo($(el));
+        })
+
+        $('section[online-edit="true"][data-position]').sort(sort_Section).appendTo($("[section-sort]"));
+
+    }
+       
+        function sort_Section(a, b) {
+            return ($(b).data('position')) < ($(a).data('position')) ? 1 : -1;
+        }
+        function sort_Socials(a, b) {
+            //alert(($(b).data('position')) < ($(a).data('position')));
+            var theLanguage = $('html').attr('dir');
+          //  alert(theLanguage);
+           
+            if (theLanguage=="rtl") {
+                return ($(b).data('position')) < ($(a).data('position')) ? 1 : -1;
+
+            }
+           
+            return ($(b).data('position')) < ($(a).data('position')) ? -1 : 1;
+        }
+</script>
+
+

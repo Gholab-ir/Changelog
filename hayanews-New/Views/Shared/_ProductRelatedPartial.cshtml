@@ -1,0 +1,34 @@
+﻿@using Comman.Helpers
+@using Resources.App_GlobalResources
+@using Utility.HtmlHelpers
+@using WebDesign.UI.Tools
+@model Models.ProductModel
+
+@if (Model.ProductsLocalizeds.Any())
+{
+    <div class="container">
+        <div class="pro-ralte">
+            <span class="title">@ResourceLocalization.GetResource(() => Resource.Related_Products)</span>
+            <div class="carousel4 wow fadeIn animatable" data-wow-delay="0.5s">
+                <div id="owl-demo4" class="owl-carousel4">
+                    @foreach (var item in Model.ProductsLocalizeds)
+                    {
+                        var porUrl = UrlTools.GetProductDetailsUrl(item);
+                        var imagePath = Html.Imagehelper(item.Products.Image);
+
+                        <div class="item">
+                                <figure class="productItem">
+                                    <img src="@imagePath" alt="" title="" />
+                                    <figcaption>
+                                        <span class="model">  @item.ProductsId </span>
+                                        <a href="/Themes/mgmLens/single-product-rtl.html">@item.Name</a>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

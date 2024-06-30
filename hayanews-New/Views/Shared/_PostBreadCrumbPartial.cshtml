@@ -1,0 +1,51 @@
+﻿@using Comman.Enums
+@using Comman.Helpers
+@using Resources.App_GlobalResources
+@using WebDesign.UI.Tools
+@model Models.PostsCategoriesCreateAndEditModels
+@{
+    var pageNum = 1;
+    var pageSize = 30;
+    var isShow = true;
+    var pageLink = "/" + ResourceLocalization.GetResource(() => Resource.lang);
+    if (ViewContext.RouteData.Values["pagenumber"] != null && ViewContext.RouteData.Values["itemsperpage"] != null)
+    {
+        pageNum = int.Parse(ViewContext.RouteData.Values["pagenumber"].ToString());
+        pageSize = int.Parse(ViewContext.RouteData.Values["itemsperpage"].ToString());
+    }
+    var countentNumber = 2;
+}
+<ol itemscope itemtype="http://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+        <a itemprop="item" href="@pageLink">
+            <span class="mdi mdi-home" itemprop="name"> </span>
+        </a>
+        <meta itemprop="position" content="1">
+    </li>
+    @if (ViewContext.RouteData.Values["category1"] != null || ViewContext.RouteData.Values["UrlKeywords"] != null)
+    {
+        var cat1 = Request.RequestContext.RouteData.Values["category1"] ?? "";
+        var cat2 = Request.RequestContext.RouteData.Values["category2"] ?? "";
+        var cat3 = Request.RequestContext.RouteData.Values["category3"] ?? "";
+
+        foreach (var item in Model.PostsCategoriesLocalizeds)
+        {
+            if (isShow)
+            {
+                Html.RenderPartial(Url.Content("/Themes/Views/SharedItems/_BreadCrumbPartial.cshtml"), new ViewDataDictionary { { "pageLink", UrlTools.GetUrlOfCategoryPost(item, Model.PostsType) }, { "pageTitle", item.Title }, { "countentNumber", countentNumber++ } });
+            }
+            if (cat1.ToString() == item.UrlCategory1 && cat2.ToString() == item.UrlCategory2 && cat3.ToString() == item.UrlCategory3)
+            {
+                isShow = false;
+            }
+        }
+        if (ViewContext.RouteData.Values["pagenumber"] == null && ViewContext.RouteData.Values["itemsperpage"] == null)
+        {
+            Html.RenderPartial(Url.Content("/Themes/Views/SharedItems/_BreadCrumbPartial.cshtml"), new ViewDataDictionary { { "pageLink", HttpContext.Current.Request.Url.LocalPath }, { "pageTitle", Model.PostsLoclized.Title }, { "countentNumber", countentNumber } });
+        }
+    }
+    @if (isShow && ViewContext.RouteData.Values["pagenumber"] != null)
+    {
+        Html.RenderPartial(Url.Content("/Themes/Views/SharedItems/_BreadCrumbPartial.cshtml"), new ViewDataDictionary { { "pageLink", HttpContext.Current.Request.Url.LocalPath }, { "pageTitle", Model.PostsType == PostsType.News ? ResourceLocalization.GetResource(() => Resource.News) : ResourceLocalization.GetResource(() => Resource.Articles) }, { "countentNumber", "2" } });
+    }
+</ol>

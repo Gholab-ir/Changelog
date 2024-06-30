@@ -1,0 +1,40 @@
+﻿@using Comman.Helpers
+@using Resources.App_GlobalResources
+
+@model Models.LanguagesModel
+
+@if (Model.Languages.Any())
+{
+    <div class="select-lang pull-left">
+        <span class="select-lang-btn iran">
+            
+            @{ Write(LanguageHelper.GetLang() == "fa" ? "فـارسـی" : "Persian"); }
+        </span>
+
+        <ul>
+            @if (Model.Languages.Any(x => x.LanguagesCodes.Code == "fa-IR") && LanguageHelper.GetLang() != "fa")
+            {
+                <li><a href="/fa" class="ir">فـارسـی</a></li>
+
+            }
+            @if (Model.Languages.Any(x => x.LanguagesCodes.Code == "en-US") && LanguageHelper.GetLang() != "en")
+            {
+                <li><a href="/en" class="en">English</a></li>
+            }
+
+            @if (Model.Languages.Any(x => x.LanguagesCodes.Code == "ar-SA") && LanguageHelper.GetLang() != "ar")
+            {
+                <li><a href="/ar" class="arabi">العـربیـه</a></li>
+            }
+
+
+        </ul>
+    </div>
+
+
+}
+
+
+
+
+

@@ -1,0 +1,134 @@
+﻿
+<div id="widgetmodal" style="z-index:900000000000000000" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header-custom">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">تنظیمات نمایس قالب</h4>
+            </div>
+            <div class="modal-body">
+
+                <div id="SectionModalBody" class="content">
+
+
+                </div>
+
+            </div>
+            <div class="modal-footer1">
+                <button type="button" class="btn btn-default" data-dismiss="modal">لغو</button>
+                <button id="BtnSetSections" type="button" class="btn btn-default" data-dismiss="modal">ثبت</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $("#widgetmodal").modal("show");
+    $(function () {
+
+        var SectionClassName;
+    });
+
+
+    GetCurrentSection();
+
+    function GetCurrentSection() {
+        debugger;
+        //alert($(Secionclass).val());
+
+        //alert("name>>>>>>>>" + this.parentElement.className);
+
+        //alert($("#ThemeId").val());
+        @{
+      var ClassName = TempData["sectionClassName"] as string;
+
+  }
+
+
+        $.ajax({
+
+            url: '@Url.Action("GetCurrentSections", "Themes")',
+            data: { id: $("#ThemeId").val(), section: SectionClassName },
+            type: "GET",
+            success: function (data, status) {
+                var object = JSON.parse(data);
+                var enabled = "<div class='rows'><label class='check2'> <input checkbox-enable='" + SectionClassName.trim() + "'type='checkbox' checked> <span class='lever'></span> در صفحه نمایش داده شود </label> </div>";
+                var sort = "<div class='rows'> <label>اولویت نمایش این بخش در صفحه</label> <div class='count'> <input  id='displayorder'  placeholder='1'>  <div class='btns'><button class='mdi mdi-menu-up' onclick='Increment();' ></button> <button class='mdi mdi-menu-down' onclick='Decrement();'></button> </div> </div> </div>"
+                ////alert(this.parentElement.className);
+                @*$("#SectionModalBody").html("<label>ترتیب نمایش:</label><input type='number' id='displayorder' placeholder='ترتیب نمایش' class='" + '@ClassName'  + '"' + "/>");
+                $("#SectionModalBody").append("<label>در صفحه نمایش داده شود:</label><input type='checkbox'  class='" + '@ClassName' + "'style='opacity:20;right:200px' >");*@
+                $("#SectionModalBody").html(enabled);
+                $("#SectionModalBody").append(sort);
+                //GetCurrentSection();
+                $(' #widgetmodal').modal('show');
+
+                $("#displayorder").val(object.SectionSort);
+                $('[checkbox-enable=' + object.SectionClass.trim() + ']').prop("checked", object.Show);
+
+            },
+            error: function (ex) {
+
+            }
+
+        });
+
+    }
+
+    $("#BtnSetSections").click(function () {
+        debugger;
+        var sectiondisplayorder = $("#displayorder").val();
+     //   alert(SectionClassName);
+        var show = $('input:checkbox[checkbox-enable=' + SectionClassName.trim() + ']').is(':checked');
+
+        //alert(show);
+        var Str1 = '{"Sections":[';
+        var Str2 = "";
+        Str2 += '{"SectionSort":"' + sectiondisplayorder + '","Show":"' + show + '", "SectionClass":" ' + SectionClassName + '"},';
+
+        Str2 = Str2.substring(0, Str2.length - 1);
+        var Temp = Str1 + Str2 + ']}';
+        var ModelStr = JSON.parse(JSON.stringify(Temp));
+        $.ajax({
+            url: '@Url.Action("UpdateSections", "themes")',
+            data: { NewSections: ModelStr, show: show, id: $("#ThemeId").val() },
+            type: "POST",
+            success: function (data) {
+
+                alert("سکشن ها به روز گردیدند");
+                location.reload();
+            },
+            error: function (ex) {
+
+            }
+        });
+    });
+
+    function Increment() {
+        var count = $("#displayorder").val();
+        count++;
+        $("#displayorder").val(count);
+    }
+
+    function Decrement() {
+        var count = $("#displayorder").val();
+
+        if (count <= 0) {
+            return;
+        }
+        else {
+            count--
+            $("#displayorder").val(count);
+        }
+
+    }
+
+
+    $(".close").click(function () {
+
+
+        $("div.modal-backdrop").remove();
+    });
+</script>

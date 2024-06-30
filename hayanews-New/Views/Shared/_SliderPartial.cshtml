@@ -1,0 +1,12 @@
+﻿@using java.util.concurrent
+@using Utility.HtmlHelpers
+@model Models.ListSlidesModels
+@{
+    var count = 0;
+}
+        @foreach (var item in Model.SlidesLocalized)
+        {
+            var imagePath = Html.Imagehelper(item.Path);
+          <img src="@imagePath" class="head" >
+        }
+

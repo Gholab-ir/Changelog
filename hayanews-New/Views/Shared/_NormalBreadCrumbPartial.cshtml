@@ -1,0 +1,16 @@
+﻿@using Comman.Helpers
+@using Resources.App_GlobalResources
+@{
+    var pageLink = "/" + ResourceLocalization.GetResource(() => Resource.lang);
+}
+<ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+        <a itemprop="item" href="@pageLink">
+            <span class="mdi mdi-home" itemprop="name"> </span>
+        </a>
+        <meta itemprop="position" content="1">
+    </li>
+    @{ Html.RenderPartial(Url.Content("/Themes/Views/SharedItems/_BreadCrumbPartial.cshtml"), new ViewDataDictionary {{"pageLink", HttpContext.Current.Request.Url.PathAndQuery}, {"pageTitle", ViewData["pageTitle"]}, {"countentNumber", "2"}}); }
+</ol>
+
+

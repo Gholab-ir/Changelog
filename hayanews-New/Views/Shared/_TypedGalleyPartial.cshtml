@@ -1,0 +1,44 @@
+﻿@using Comman.Helpers
+@using Resources.App_GlobalResources
+@using Utility.HtmlHelpers
+@using WebDesign.UI.Framework.SharedObjects
+@model IEnumerable<WebDesign.Domain.GalleryLocalized>
+
+<div class="part2">
+    <div class="title">
+        <span><i class="glyph-icon flaticon-photo"></i></span>
+        <strong>@ResourceLocalization.GetResource(() => Resource.ImagesGallery)</strong>
+    </div>
+    <div class="parent-filter filters">
+        <!-- Filter -->
+        <ul id="filter-list" class="clearfix">
+            <li class="filter" data-filter="all">@ResourceLocalization.GetResource(() => Resource.All)</li>
+            @{
+                var currentLang = SharedObjectResolver.Configs.CurrentRequestCulture;
+
+                var cats = Model.Select(x => x.Gallery.GalleriesCategories.GalleriesCategoriesLocalized.FirstOrDefault(z => z.Languages.LanguagesCodes.Code == currentLang)).Distinct().ToList();
+                foreach (var cat in cats)
+                {
+                    <li class="filter" data-filter="@cat.GalleriesCategoriesId">@cat.Title</li>
+                }
+            }
+        </ul>
+        <ul id="portfolio" class="gallery-lightbox">
+            @foreach (var img in Model)
+            {
+                var imagePath = Html.Imagehelper(img.Gallery.FilePath);
+                var catId = img.Gallery.GalleriesCategoriesId;
+                <li class="item @catId animateblock lazy-load-box">
+                    <a href="@imagePath" id="example2" class="showcase" data-rel="lightcase:myCollection:slideshow" title="Project">
+                        <img src="@imagePath" alt="@img.Title" title="@img.Title">
+                        <span class="bgBlack"></span>
+                        <div class="portfolio-text">
+                            <strong>@img.Title</strong>
+                            <span class="btn"><i class="mdi mdi-arrow-right-bold"></i></span>
+                        </div>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

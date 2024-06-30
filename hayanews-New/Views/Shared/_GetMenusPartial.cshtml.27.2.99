@@ -1,0 +1,134 @@
+﻿@using Comman.Helpers
+@using Models
+@using Utility.HtmlHelpers
+@using WebDesign.Domain
+@model Models.MenuLocalizedModel
+@using WebDesign.UI.Framework.SharedObjects
+
+@if (Model.IsResize == true)
+{
+    <ul class="links">
+        @ShowResizeMenu(Model, Model.RootId)
+    </ul>
+}
+else
+{
+    <ul class="menu">
+        @ShowMenu(Model, Model.RootId)
+    </ul>
+}
+@{
+    @helper ShowMenu(MenuLocalizedModel model, int catId)
+    {
+int id = catId;
+var subs = from m in model.Menus where m.MenusId == id select m;
+if (subs != null)
+{
+    var enumerableSubms = subs as List<Menus> ?? subs.OrderBy(x => x.DisplayOrder).ToList();
+    if (enumerableSubms.OrderBy(x => x.DisplayOrder).Any())
+    {
+        foreach (var menu in enumerableSubms.OrderBy(x => x.DisplayOrder))
+        {
+            var currentLang = SharedObjectResolver.Configs.CurrentRequestCulture;
+            var localized = menu.MenusLocalized.FirstOrDefault(x => x.Languages.LanguagesCodes.Code == currentLang);
+            if (localized != null)
+            {
+                var subMenuClass = "";
+                var activeClass = " ";
+                if (menu.MenusId == Model.RootId && Html.MenuItemIsSelected(localized))
+                {
+                    activeClass = "active";
+                }
+                if (menu.Menus2.Any())
+                {
+                    subMenuClass = menu.MenusId == Model.RootId ? "dropdown dropdown-inline" : "dropdown";
+                }
+                if (menu.ExclusiveFeatures.Length > 1)
+                {
+                    activeClass = "currentPage";
+                }
+                <li class="@subMenuClass @activeClass">
+                    @{
+                        if (menu.Menus2.Any())
+                        {
+                            if (subMenuClass != "dropdown")
+                            {
+                                <a href="@localized.Value" class=" dropdown-toggle" data-hover="dropdown" data-animations="zoomIn zoomIn zoomIn zoomIn">
+                                    <span class=" ripplelink2">@localized.Key</span>
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="@localized.Value"><span class="ripplelink2">@localized.Key</span></a>
+                            }
+                            var ulClass = menu.MenusId == Model.RootId ? "dropdown-menu" : "dropdown-menu dropdownhover-right";
+                            <ul class="@ulClass" role="menu">
+                                @ShowMenu(model, menu.Id)
+                            </ul>
+                        }
+                        else
+                        {
+
+                            <a href="@localized.Value">
+                                @{
+                                    if (menu.ExclusiveFeatures.Length > 1)
+                                    {
+                                        <span class="ripplelink2 mdi mdi-home"></span>
+
+                                    }
+                                    else
+                                    {
+                                        <span class=" ripplelink2">@localized.Key</span>
+
+                                    }
+                                }
+                            </a>
+                                    }
+                    }
+                </li>
+                                                }
+                                            }
+                                        }
+                                    }
+}
+}
+
+@helper ShowResizeMenu(MenuLocalizedModel model, int catId)
+{
+int id = catId;
+var subs = from m in model.Menus where m.MenusId == id select m;
+if (subs != null)
+{
+    var enumerableSubms = subs as List<Menus> ?? subs.OrderBy(x => x.DisplayOrder).ToList();
+    if (enumerableSubms.Any())
+    {
+        foreach (var menu in enumerableSubms)
+        {
+            var currentLang = SharedObjectResolver.Configs.CurrentRequestCulture;
+            var localized = menu.MenusLocalized.FirstOrDefault(x => x.Languages.LanguagesCodes.Code == currentLang);
+            if (localized != null)
+            {
+                var activeClass = "";
+                if (Html.MenuItemIsSelected(localized))
+                {
+                    activeClass = "currentPage active";
+                }
+                var menuChild = menu.Menus2.Any() ? "have-sub" : "noSub ripplelink2";
+                WriteLiteral("<li class='link " + activeClass + " " + menuChild + "'>");
+                if (menu.Menus2.Any())
+                {
+                        <a href="@localized.Value">@localized.Key</a>
+                        WriteLiteral("<ul>");
+                        @ShowResizeMenu(model, menu.Id)
+                        WriteLiteral("</ul>");
+                    }
+                    else
+                    {
+                        <a href="@localized.Value">@localized.Key</a>
+                }
+                WriteLiteral("</li>");
+            }
+        }
+    }
+}
+}

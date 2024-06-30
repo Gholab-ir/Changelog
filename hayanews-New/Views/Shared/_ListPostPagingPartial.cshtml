@@ -1,0 +1,24 @@
+﻿@using System.Web.Mvc.Html
+@using Comman.Enums
+@using Comman.Helpers
+@using Resources.App_GlobalResources
+@using Utility.HtmlHelpers
+@using WebDesign.UI.Tools
+@model   Models.PagingInfo
+@{
+    Model.PageSize = (SelectList)ViewData["PageSize"];
+}
+<ul>
+    <li><a href="#"></a></li>
+    @{
+        var postType = (PostsType)ViewData["PostType"];
+        var routName = UrlTools.GetNewsPaggingRouteName(postType);
+        @Html.PageLinks(Model, new
+{
+    page = Resource.ResourceManager.GetString("Routes_Parameters_Page", System.Threading.Thread.CurrentThread.CurrentUICulture)
+    ,
+    pagesize = Resource.ResourceManager.GetString("Routes_Parameters_ItemPerPage", System.Threading.Thread.CurrentThread.CurrentUICulture),
+}, routName.ToString())
+    }
+    <li><a href="#"></a></li>
+</ul>

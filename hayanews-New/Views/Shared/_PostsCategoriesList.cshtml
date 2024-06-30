@@ -1,0 +1,36 @@
+﻿@using Comman.Enums
+@using Comman.Helpers
+@using Utility.HtmlHelpers
+@using WebDesign.Domain
+@using WebDesign.UI.Tools
+@model PostsCategories
+@{
+    var counter = 0;
+    var buttonClass = "";
+    var i = 0;
+
+}
+<div class="tab">
+    @foreach (var item in Model.PostsCategories2.ToList())
+    {
+        if (i >= 5)
+        {
+            break;
+        }
+        var filterName = item.PostsCategoriesLocalized.FirstOrDefault().Title;
+        var filterId = item.Id;
+        if (counter == 0)
+        {
+            buttonClass = "active";
+            counter += 1;
+        }
+        else
+        {
+            buttonClass = "";
+        }
+        <button class="tablinks" onclick="opentab(event, '@filterId')" id="defaultOpen">@filterName</button>
+        i += 1;
+    }
+    @{ var Url = UrlTools.GetPostListUrl(PostsType.News); }
+    <a href="@Url">مشاهده تمامی موارد</a>
+</div>

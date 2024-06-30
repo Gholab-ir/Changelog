@@ -1,0 +1,35 @@
+﻿@using Comman.Enums
+@using Comman.Helpers
+@using Resources.App_GlobalResources
+@using Utility.HtmlHelpers
+@using WebDesign.Domain
+@using WebDesign.UI.Tools
+@model  List<PostsLoclized>
+
+
+@{
+    if (Model == null)
+    {
+        return;
+    }
+    foreach (var news in Model)
+    {
+
+        var url = UrlTools.GetNewsDetailsUrl(news);
+        var imagePath = Html.Imagehelper(news.Posts.DefaultImage);
+        var localDay = DateTimeHelper.ConvertEnglishDateToPersian(news.Posts.CreateDate).AsDateTime().Day;
+        var localMonth = DateTimeHelper.ConvertEnglishDateToPersian(news.Posts.CreateDate).AsDateTime().Month;
+        var localYear = DateTimeHelper.ConvertEnglishDateToPersian(news.Posts.CreateDate).AsDateTime().Year;
+        var detailsUrl = UrlTools.GetNewsDetailsUrl(news);
+        <div class="item">
+            <img src="@imagePath" alt="اخبــار" class="image">
+            <div class="overlay"  onclick="window.location.href='@url'">
+                <a class="onvan">@news.Title </a>
+                <p>@news.Abstract</p>
+                <span><a href="@url">مشاهده ...</a> </span>
+            </div>
+        </div>
+
+    }
+}
+

@@ -1,0 +1,76 @@
+﻿@using Comman.Helpers
+@using Resources.App_GlobalResources
+@using Utility.Comman
+@using Utility.HtmlHelpers
+@using WebDesign.UI.Tools
+@model Models.InfinitesProductsLocalizedModel
+
+@* این قسمت برای فهمیدن اینکه به آخر رکوردها رسیده ایم لازم است *@
+@{
+    if (Model.ProductsLocalized == null || Model.ProductsLocalized.Count() < Model.PageSize)
+    {
+        <input type="hidden" id="filterRecordsEndFlag" value="0" />
+    }
+
+    @* این قسمت برای فهمیدن اینکه به آخر رکوردها رسیده ایم لازم است *@
+    if (Model.ProductsLocalized == null || !Model.ProductsLocalized.Any())
+    {
+        <span class="emptyList">
+            <p>@ResourceLocalization.GetResource(() => Resource.NoItemToDisplay)</p>
+        </span>
+    }
+    else
+    {
+        <div class="infiniteScrollLoadingUp infiniteScrollLoading">
+            <img src='@Url.Content("/Themes/deltaco/static/images/spin1.gif")' />
+            <p style="text-align: center;">
+                <b>@ResourceLocalization.GetResource(() => Resource.Loading) @TempData["RecordsPerEachPage"] @ResourceLocalization.GetResource(() => Resource.NextRecords)</b>
+            </p>
+        </div>
+        foreach (var item in Model.ProductsLocalized.ToList())
+        {
+            var url = UrlTools.GetProductDetailsUrl(item);
+            var imagePath = Html.Imagehelper(item.Products.Image);
+            var priceAfterApppliedDiscount = Discounts.CalculateDiscounts(item.Products, 1);
+            var result = priceAfterApppliedDiscount.Item1 * Model.Currency.Rate;
+            var exPrice = item.Products.Price * Model.Currency.Rate;
+
+            @*<div onclick="doHrefAction('@item.Id')" class="col-md-4 col-sm-4 col-xs-6">
+                <div class="box-pro os-animation animated bounceInDown" data-os-animation="bounceInDown" data-os-animation-delay="0.2s" style="animation-delay: 0.2s;">
+                    <figure>
+                        <a href="@url">
+                            <img src="@imagePath" alt="@item.Name">
+                        </a>
+                    </figure>
+                    <article>
+                        <a href="@url" class="@item.Id">
+                            <h2>@item.Name</h2>
+                        </a>
+                        <div class="price">
+                            <span class="noline">@Html.DisplayFor(modelItem => result) &nbsp; @Html.DisplayFor(x => Model.Currency.Symbol)</span>
+                            <span class="line">@Html.DisplayFor(modelItem => exPrice) &nbsp; @Html.DisplayFor(x => Model.Currency.Symbol)</span>
+                        </div>
+                        <b class="more-pro hvr-bounce-to-top btn btn-default">@ResourceLocalization.GetResource(() => Resource.Details)</b>
+                    </article>
+                </div>
+            </div>*@
+
+            <div class="col-md-3 col-xs-4" onclick="window.location.href='@url'">
+                <figure class="productItem animateblock lazy-load-box">
+                    <img src="@imagePath" alt="@item.Name" title="@item.Name" />
+                    <figcaption>
+                        <span class="model">@item.ProductsId</span>
+                        <a href="@url">@item.Name</a>
+                    </figcaption>
+                </figure>
+            </div>
+    }
+        <div class="infiniteScrollLoadingDown infiniteScrollLoading">
+            <img src='@Url.Content("/Themes/deltaco/static/images/spin1.gif")' />
+            <p style="text-align: center;">
+                <b>@ResourceLocalization.GetResource(() => Resource.Loading) @TempData["RecordsPerEachPage"] @ResourceLocalization.GetResource(() => Resource.NextRecords)</b>
+            </p>
+        </div>
+    }
+}
+

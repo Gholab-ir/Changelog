@@ -1,0 +1,119 @@
+﻿@using Comman.Enums
+@using WebDesign.UI.Tools
+@using Comman.Helpers
+@using Resources
+@using Models;
+@using WebDesign.Domain
+@using Resources.App_GlobalResources
+@using Utility.HtmlHelpers
+@model PostCategoryModel
+
+@{
+    var listOflist = new List<List<PostsLoclized>>();
+    var tab_New = "tab1_new";
+    var tab_mo = "tab2_mo";
+    var specificCharLatest = "";
+    var specificCharSpecial = "";
+
+    var indexLatest = 0;
+    var indexImportant = 0;
+}
+
+@{
+    if (Model.PostsSpecialAndLatest.Any())
+    {
+        foreach (var post in Model.PostsSpecialAndLatest.ToList())
+        {
+
+                listOflist.Clear();
+                indexLatest += 1;
+                specificCharLatest = tab_New.Substring(3, 1);
+                tab_New = tab_New.Replace(specificCharLatest, indexLatest.ToString());
+                <div id="@post.PostsCategoriesLocalized.PostsCategoriesId" class="tabcontent row">
+
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="row">
+                            <h3 class="title titletab">@{ Write(LanguageHelper.GetLang() == "fa" ? "تازه ترین اخبار" : "Latest News"); }</h3>
+                            <div id="@tab_New" class="owl-carousel">
+
+
+                                @{
+                                    for (int i = 0; i < post.LatestPost.Count(); i += 3)
+                                    {
+                                        listOflist.Add(post.LatestPost.Skip(i).Take(3).ToList());
+                                    }
+
+                                    foreach (var list in listOflist)
+                                    {
+                                        <div class="item">
+                                            @foreach (var item in list)
+                                            {
+                                                var url = UrlTools.GetNewsDetailsUrl(item);
+                                                var imagePath = Html.Imagehelper(item.Posts.DefaultImage);
+                                                <div class="ghab" onclick="window.location.href='@url'">
+                                                    <div class="row">
+                                                        <div class="col-sm-5 col-md-5 col-xs-12">
+                                                            <img src="@imagePath" class="img-responsive" alt="" title="">
+                                                        </div>
+                                                        <div class="col-sm-7 col-md-7 col-xs-12">
+                                                            <a href="@url">
+                                                                <h3 class="titrnews">@item.Title</h3>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+                                    }
+
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="row">
+                            <h3 class="title titletab">@{ Write(LanguageHelper.GetLang() == "fa" ? "مهمترین اخبار" : "Important News"); }</h3>
+                            @{
+                                indexImportant += 1;
+                                specificCharSpecial = tab_mo.Substring(3, 1);
+                                tab_mo = tab_mo.Replace(specificCharSpecial, indexImportant.ToString());
+                            }
+
+                            <div id="@tab_mo" class="owl-carousel">
+                                @foreach (var Post in post.SpecialPost)
+                                {
+                                    var url = UrlTools.GetNewsDetailsUrl(Post);
+                                    var imagePath = Html.Imagehelper(Post.Posts.DefaultImage);
+                                    <div class="item" onclick="window.location.href = '@url'">
+                                        <div class="newstab">
+                                            <img src="@imagePath">
+                                            <div class="back ">
+                                                <a href="@url">@Post.Title</a>
+                                                <p>@Post.Abstract </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+                    
+
+
+
+
+
+                </div>
+
+                                        }
+
+
+
+
+                                    }
+                                }
+
+

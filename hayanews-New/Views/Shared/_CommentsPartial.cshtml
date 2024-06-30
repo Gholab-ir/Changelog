@@ -1,0 +1,98 @@
+﻿@using Comman.Enums
+@using Comman.Helpers
+@model IEnumerable<WebDesign.Domain.Comments>
+<div style="display:none;" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+    <span itemprop="ratingValue">5/5</span>
+    <span itemprop="reviewCount">@Model.Count()</span>
+    <span itemprop="bestRating"> @Model.Count()</span>
+    <span itemprop="worstRating">@Model.Count()</span>
+</div>
+@if (Model != null && Model.Any(x => x.Status == CommentStatus.Approved))
+{
+    foreach (var comment in Model)
+    {
+        if (comment.Status == CommentStatus.Approved)
+        {
+            var dateResult = DateTimeHelper.GetDateByLang(comment.DateTime);
+            var localDay = dateResult.AsDateTime().Day;
+            var localYear = dateResult.AsDateTime().Year;
+            var localMonth = dateResult.AsDateTime().Month;
+            @*<div itemprop="review" itemscope itemtype="http://schema.org/Review" class="comment-item">
+                <div class="parentUserImg"><div class="userImg"><img src="/Themes/corporate3/static/img/userComment.jpg" /></div></div>
+                <div class="userComment">
+                    <div itemprop="author" itemscope itemtype="http://schema.org/Person" class="top-comment">
+                        <label itemprop="name">@comment.Title</label><span> -  :  @localYear/@localMonth/@localDay</span>
+                    </div>
+                    <div class="btm-comment">
+                        <p itemprop="reviewBody">@comment.Description</p>
+                    </div>
+                </div>
+            </div>*@
+
+
+
+            <div class="commentItem row">
+                <div class="col-md-3">
+                    <div class="pic">
+                        <img src="/themes/hayanews/static/images/chat.jpg" class="piccoment">
+                    </div>
+                    <p class="comname">@comment.Title</p>
+                </div>
+                <div class="col-md-9">
+                    <p class="com">
+                       @comment.Description
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-6">
+                                <div class="likes">
+                                    <button  id="@comment.Id" onclick="DoLike(this, '@EntitiesName.comments', false);" class="like btnLike float-l">
+                                        <span  class="likesCount"> @comment.Likes.Count(x => !x.IsLike)</span><i class="mdi mdi-thumb-up-outline"></i>
+                                    </button>
+                                    <button  id="@comment.Id" onclick="DoLike(this, '@EntitiesName.comments', true);" class="unlike btnDisLike float-l">
+                                        <i class="mdi mdi-thumb-down-outline"></i>
+                                        <span class="likesCount">@comment.Likes.Count(x => !x.IsLike)</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            @*<div class="likes">
+                                <button class="like" id="@comment.Id" onclick="DoLike(this, '@EntitiesName.comments', false);">
+                                    <span>@comment.Likes.Count(x => !x.IsLike)</span><i class="mdi mdi-thumb-up-outline"></i>
+                                </button>
+                                <button class="unlike" id="@comment.Id" onclick="DoLike(this, '@EntitiesName.comments', true);">
+                                    <i class="mdi mdi-thumb-down-outline"></i><span>@comment.Likes.Count(x => x.IsLike)</span>
+                                </button>
+                            </div>*@
+
+
+                            @*<div class="parent-likes">
+                                <button id="@Model.PostsId" onclick="DoLike(this, '@EntitiesName.posts', false);" class="btndisLike">
+                                    <span class="likesCount">@Model.Posts.Likes.Count(x => !x.IsLike)</span><i class="glyph-icon flaticon-dislike"></i>
+                                </button>
+                                <button id="@Model.PostsId" onclick="DoLike(this, '@EntitiesName.posts', true);" class="btnLike">
+                                    <span class="likesCount">@Model.Posts.Likes.Count(x => x.IsLike)</span><i class="glyph-icon flaticon-like"></i>
+                                </button>
+                            </div>*@
+
+                        </div>
+                        <div class="col-md-6 date">
+                            <span>@localYear/@localMonth/@localDay</span>
+                        </div>
+                    </div>
+                    <div class="line-com"></div>
+                </div>
+
+
+            </div>
+        }
+    }
+}
+
+
+
+
+
+
+
+

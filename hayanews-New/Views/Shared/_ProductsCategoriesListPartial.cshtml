@@ -1,0 +1,65 @@
+﻿@using Comman.Enums
+@using Comman.Helpers
+@using Models
+@using WebDesign.Domain
+@using WebDesign.UI.Tools
+@using WebDesign.UI.Framework.SharedObjects
+@model ProductCategoriesListModel
+
+<ul class="category pan">
+    @{
+        @ShowTree(Model, Model.RootId)
+        @helper ShowTree(ProductCategoriesListModel model, int catId)
+{
+    int id = catId;
+    var subs = from m in model.ProductCategory where m.ProductsCategoriesId == id select m;
+    if (subs != null)
+    {
+        var enumerableSubms = subs as List<ProductsCategories> ?? subs.ToList();
+        if (enumerableSubms.ToList().Any())
+        {
+            var cat = model.ProductCategory.FirstOrDefault(x => x.Id == catId);
+            if (cat != null)
+            {
+                var currentLang = SharedObjectResolver.Configs.CurrentRequestCulture;
+                var localizedMenu = cat.ProductCategoriesLocalized.FirstOrDefault(x => x.Languages.LanguagesCodes.Code == currentLang);
+                if (localizedMenu != null)
+                {
+                    var detailUrl = UrlTools.GetUrlOfCategoryProducts(localizedMenu, localizedMenu.Name, null, PagingType.InfiniteScroll, 30);
+                    WriteLiteral("<li class='has-sub'>");
+                    WriteLiteral("<a  href='" + detailUrl + "'>");
+                    WriteLiteral("<span>" + localizedMenu.Name + "</span>");
+                    WriteLiteral("</a>");
+                    WriteLiteral("<ul>");
+                }
+            }
+            foreach (var submenu in enumerableSubms)
+            {
+                id = submenu.Id;
+                @ShowTree(model, id)
+            }
+            WriteLiteral("</ul>");
+            WriteLiteral("</li>");
+        }
+        else
+        {
+            var cat = model.ProductCategory.FirstOrDefault(x => x.Id == id);
+            if (cat != null)
+            {
+                var currentLang = SharedObjectResolver.Configs.CurrentRequestCulture;
+                var localizedProduct = cat.ProductCategoriesLocalized.FirstOrDefault(x => x.Languages.LanguagesCodes.Code == currentLang);
+                if (localizedProduct != null)
+                {
+                    var detailUrl = UrlTools.GetUrlOfCategoryProducts(localizedProduct, localizedProduct.Name, null, PagingType.InfiniteScroll, 30);
+                    <li class="noSub">
+                        <a href='@detailUrl'>
+                            <span>@localizedProduct.Name</span>
+                        </a>
+                    </li>
+                }
+            }
+        }
+    }
+}
+    }
+</ul>

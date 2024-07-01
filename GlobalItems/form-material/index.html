@@ -1,0 +1,609 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description" content="Materialize is a modern responsive CSS framework based on Material Design by Google. ">
+    <title>Forms - Materialize</title>
+    <!-- CSS-->
+    <link href="/GlobalItems/bootstrap/css/bootstrap-rtl.css" rel="stylesheet" media="screen,projection">
+    <link href="style/form-material.css" rel="stylesheet" media="screen,projection">
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="row">
+                <!-- input -->
+                <div id="input" class="section scrollspy">
+                    <h2>Input</h2>
+                    <form>
+                        <div class="row">
+                            <div class="input-field col-md-6">
+                                <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                                <label for="first_name" class="active">نام</label>
+                            </div>
+                            <div class="input-field col-md-6">
+                                <input id="last_name" type="text">
+                                <label for="last_name" class="">نام خانوادگی</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col-md-12">
+                                <input disabled="" value="I am not editable" id="disabled" type="text" class="validate">
+                                <label for="disabled" class="active">غیرفعال</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col-md-12">
+                                <input id="password" type="password" class="validate">
+                                <label for="password" class="">پسورد</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col-md-12">
+                                <input id="email" type="email" class="validate">
+                                <label for="email" data-error="wrong" data-success="right" class="">ایمیل</label>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="input-field col-md-6">
+                            <input value="Alvin" id="first_name2" type="text" class="validate valid">
+                            <label class="active" for="first_name2">نام</label>
+                        </div>
+                    </div>
+                    <form>
+                        <div class="row">
+                            <div class="input-field col-md-6">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="icon_prefix" type="text" class="validate">
+                                <label for="icon_prefix" class="">First Name</label>
+                            </div>
+                            <div class="input-field col-md-6">
+                                <i class="material-icons prefix">phone</i>
+                                <input id="icon_telephone" type="tel" class="validate">
+                                <label for="icon_telephone" class="">Telephone</label>
+                            </div>
+                        </div>
+                    </form>
+                    <form>
+                        <div class="row">
+                            <div class="input-field col-md-12">
+                                <input id="email2" type="email" class="validate">
+                                <label for="email2" data-error="wrong" data-success="right" class="">Email</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Textarea Section -->
+                <div id="textarea" class="section scrollspy">
+                    <h2 class="header">Textarea</h2>
+                    <form>
+                        <div class="row">
+                            <div class="input-field col-md-12">
+                                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                <label for="textarea1" class="">Textarea</label>
+                            </div>
+                        </div>
+                    </form>
+                    <h4>Icon Prefixes</h4>
+                    <form>
+                        <div class="row">
+                            <div class="input-field col-md-12">
+                                <i class="material-icons prefix">mode_edit</i>
+                                <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                                <label for="icon_prefix2" class="">Message</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- select -->
+                <div id="select" class="section scrollspy">
+                    <h2 class="header">Select</h2>
+                    <form>
+                        <div class="row">
+                            <div class="input-field col-md-6">
+                                <div class="select-wrapper">
+                                    <span class="caret">▼</span><input type="text" class="select-dropdown" readonly="true" data-activates="select-options-39d440c8-99d0-62f2-4956-ad89a1ee6762" value="Choose your option"><ul id="select-options-39d440c8-99d0-62f2-4956-ad89a1ee6762" class="dropdown-content select-dropdown" style="width: 470px; position: absolute; top: 0px; left: 0px; opacity: 1; display: none;"><li class="disabled"><span>Choose your option</span></li><li class=""><span>Option 1</span></li><li class=""><span>Option 2</span></li><li class="active"><span>Option 3</span></li></ul><select class="initialized">
+                                        <option value="" disabled="" selected="">Choose your option</option>
+                                        <option value="1">Option 1</option>
+                                        <option value="2">Option 2</option>
+                                        <option value="3">Option 3</option>
+                                    </select>
+                                </div>
+                                <label>Materialize Select</label>
+                            </div>
+                            <div class="col-md-12">
+                                <br>
+                                <p>
+                                    You can add the property <code class=" language-markup">multiple</code> to get the multiple select and select several options.
+                                </p>
+                            </div>
+                            <div class="input-field col-md-6">
+                                <div class="select-wrapper">
+                                    <span class="caret">▼</span><input type="text" class="select-dropdown" readonly="true" data-activates="select-options-39db9aa5-068f-be55-1639-fddc57e7d47f" value="Choose your option"><ul id="select-options-39db9aa5-068f-be55-1639-fddc57e7d47f" class="dropdown-content select-dropdown multiple-select-dropdown" style="width: 470px; position: absolute; top: 0px; left: 0px; opacity: 1; display: none;"><li class="disabled"><span><input type="checkbox" disabled=""><label></label>Choose your option</span></li><li class=""><span><input type="checkbox"><label></label>Option 1</span></li><li class="active"><span><input type="checkbox"><label></label>Option 2</span></li><li class=""><span><input type="checkbox"><label></label>Option 3</span></li></ul><select multiple="" class="initialized">
+                                        <option value="" disabled="" selected="">Choose your option</option>
+                                        <option value="1">Option 1</option>
+                                        <option value="2">Option 2</option>
+                                        <option value="3">Option 3</option>
+                                    </select>
+                                </div>
+                                <label>Materialize Multiple Select</label>
+                            </div>
+                            <div class="col-md-12">
+                                <br>
+                                <p>We also support optgroups in our selects.</p>
+                            </div>
+                            <div class="input-field col-md-6">
+                                <div class="select-wrapper">
+                                    <span class="caret">▼</span><input type="text" class="select-dropdown" readonly="true" data-activates="select-options-693ff357-76a3-f2f3-eda8-e070a94fedfc" value="Option 1"><ul id="select-options-693ff357-76a3-f2f3-eda8-e070a94fedfc" class="dropdown-content select-dropdown" style="width: 470px; position: absolute; top: -257px; left: 0px; opacity: 1; display: none;"><li class="optgroup"><span>team 1</span></li><li class="optgroup-option"><span>Option 1</span></li><li class="optgroup-option"><span>Option 2</span></li><li class="optgroup"><span>team 2</span></li><li class="optgroup-option active selected"><span>Option 3</span></li><li class="optgroup-option"><span>Option 4</span></li></ul><select class="initialized">
+                                        <optgroup label="team 1">
+                                            <option value="1">Option 1</option>
+                                            <option value="2">Option 2</option>
+                                        </optgroup>
+                                        <optgroup label="team 2">
+                                            <option value="3">Option 3</option>
+                                            <option value="4">Option 4</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <label>Optgroups</label>
+                            </div>
+                            <div class="col-md-12">
+                                <br>
+                                <p>
+                                    You can add icons to your options in any type of select. In the option you add the image source with the <code class=" language-markup">data-icon</code> attribute. You can add the <code class=" language-markup">left</code> or <code class=" language-markup">right</code> class to align your icon. You can also add the <code class=" language-markup">circle</code> class to your icon.
+                                </p>
+                            </div>
+                            <div class="input-field col-md-6">
+                                <div class="select-wrapper icons">
+                                    <span class="caret">▼</span><input type="text" class="select-dropdown" readonly="true" data-activates="select-options-fa1a6e34-84c9-977f-8f75-442548b6e8d8" value="Choose your option"><ul id="select-options-fa1a6e34-84c9-977f-8f75-442548b6e8d8" class="dropdown-content select-dropdown" style="width: 470px; position: absolute; top: -155px; left: 0px; opacity: 1; display: none;"><li class="disabled"><span>Choose your option</span></li><li class=""><img src="./Forms - Materialize_files/sample-1.jpg" class="circle"><span>example 1</span></li><li class=""><img src="./Forms - Materialize_files/office.jpg" class="circle"><span>example 2</span></li><li class=""><img src="./Forms - Materialize_files/yuna.jpg" class="circle"><span>example 1</span></li></ul><select class="icons initialized">
+                                        <option value="" disabled="" selected="">Choose your option</option>
+                                        <option value="" data-icon="images/sample-1.jpg" class="circle">example 1</option>
+                                        <option value="" data-icon="images/office.jpg" class="circle">example 2</option>
+                                        <option value="" data-icon="images/yuna.jpg" class="circle">example 1</option>
+                                    </select>
+                                </div>
+                                <label>Images in select</label>
+                            </div>
+                            <div class="input-field col-md-6">
+                                <div class="select-wrapper icons">
+                                    <span class="caret">▼</span><input type="text" class="select-dropdown" readonly="true" data-activates="select-options-3b4cc73e-aadc-2b43-9185-ed3fa08c6c45" value="Choose your option"><ul id="select-options-3b4cc73e-aadc-2b43-9185-ed3fa08c6c45" class="dropdown-content select-dropdown" style="width: 470px; position: absolute; top: -155px; left: 0px; opacity: 1; display: none;"><li class="disabled"><span>Choose your option</span></li><li class=""><img src="./Forms - Materialize_files/sample-1.jpg" class="left circle"><span>example 1</span></li><li class=""><img src="./Forms - Materialize_files/office.jpg" class="left circle"><span>example 2</span></li><li class=""><img src="./Forms - Materialize_files/yuna.jpg" class="left circle"><span>example 3</span></li></ul><select class="icons initialized">
+                                        <option value="" disabled="" selected="">Choose your option</option>
+                                        <option value="" data-icon="images/sample-1.jpg" class="left circle">example 1</option>
+                                        <option value="" data-icon="images/office.jpg" class="left circle">example 2</option>
+                                        <option value="" data-icon="images/yuna.jpg" class="left circle">example 3</option>
+                                    </select>
+                                </div>
+                                <label>Images in select</label>
+                            </div>
+                            <div class="col-md-12">
+                                <br>
+                                <p>
+                                    You can add the class <code class=" language-markup">browser-default</code> to get the browser default.
+                                </p>
+                            </div>
+                            <div class="col-md-12">
+                                <label>Browser Select</label>
+                                <select class="browser-default">
+                                    <option value="" disabled="" selected="">Choose your option</option>
+                                    <option value="1">Option 1</option>
+                                    <option value="2">Option 2</option>
+                                    <option value="3">Option 3</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Materialize Disabled</label>
+                                <div class="select-wrapper">
+                                    <span class="caret disabled">▼</span><input type="text" class="select-dropdown" readonly="true" disabled="" data-activates="select-options-eaa7afb9-f344-88a3-618b-14f37b24e7c5" value="Choose your option"><ul id="select-options-eaa7afb9-f344-88a3-618b-14f37b24e7c5" class="dropdown-content select-dropdown "><li class="disabled "><span>Choose your option</span></li><li class=""><span>Option 1</span></li><li class=""><span>Option 2</span></li><li class=""><span>Option 3</span></li></ul><select disabled="" class="initialized">
+                                        <option value="" disabled="" selected="">Choose your option</option>
+                                        <option value="1">Option 1</option>
+                                        <option value="2">Option 2</option>
+                                        <option value="3">Option 3</option>
+                                    </select>
+                                </div>
+                                <label>Browser Disabled</label>
+                                <select class="browser-default" disabled="">
+                                    <option value="" disabled="" selected="">Choose your option</option>
+                                    <option value="1">Option 1</option>
+                                    <option value="2">Option 2</option>
+                                    <option value="3">Option 3</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- radio -->
+                <div id="radio" class="section scrollspy">
+                    <h2 class="header">Radio Buttons</h2>
+                    <form>
+                        <p>
+                            <input name="group1" type="radio" id="test1" checked="">
+                            <label for="test1">Red</label>
+                        </p>
+                        <p>
+                            <input name="group1" type="radio" id="test2">
+                            <label for="test2">Yellow</label>
+                        </p>
+                        <p>
+                            <input class="with-gap" name="group1" type="radio" id="test3">
+                            <label for="test3">Green</label>
+                        </p>
+                        <p>
+                            <input name="group1" type="radio" id="test4" disabled="disabled">
+                            <label for="test4">Brown</label>
+                        </p>
+                    </form>
+                    <h4>Options</h4>
+                    <p>
+                        <input class="with-gap" name="group3" type="radio" id="test5" checked="">
+                        <label for="test5">Red</label>
+                    </p>
+                </div>
+
+                <!-- Checkboxes -->
+                <div id="checkbox" class="section scrollspy">
+                    <h2 class="header">Checkboxes</h2>
+                    <form>
+                        <p>
+                            <input type="checkbox" id="test9">
+                            <label for="test9">Red</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="test6" checked="checked">
+                            <label for="test6">Yellow</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked">
+                            <label for="filled-in-box">Filled in</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="indeterminate-checkbox">
+                            <label for="indeterminate-checkbox">Indeterminate Style</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="test7" checked="checked" disabled="disabled">
+                            <label for="test7">Green</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="test8" disabled="disabled">
+                            <label for="test8">Brown</label>
+                        </p>
+                    </form>
+                </div>
+
+                <!-- Switches -->
+                <div id="switches" class="section scrollspy">
+                    <h2 class="header">Switches</h2>
+                    <form>
+                        <p>
+                        </p>
+                        <div class="switch">
+                            <label>
+                                Off
+                                <input checked="" type="checkbox">
+                                <span class="lever"></span>
+                                On
+                            </label>
+                        </div>
+                        <p></p>
+                        <p>
+                        </p>
+                        <div class="switch">
+                            <label>
+                                Off
+                                <input disabled="" type="checkbox">
+                                <span class="lever"></span>
+                                On
+                            </label>
+                        </div>
+                        <p></p>
+                    </form>
+                </div>
+
+                <!-- upload -->
+                <div id="file" class="section scrollspy">
+                    <h2 class="header">File Input</h2>
+                    <p>If you want to style an input button with a path input we provide this structure.</p>
+                    <form>
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>File</span>
+                                <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text">
+                            </div>
+                        </div>
+                    </form>
+                    <p>
+                        You can also use the <code class=" language-markup">multiple</code> attribute to allow multiple file uploads.
+                    </p>
+                    <form>
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>File</span>
+                                <input type="file" multiple="">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- range -->
+                <div id="range" class="section scrollspy">
+                    <h2 class="header">Range</h2>
+                    <h4>noUiSlider</h4>
+                    <div id="range-input" class="noUi-target noUi-ltr noUi-horizontal noUi-background">
+                        <div class="noUi-base">
+                            <div class="noUi-origin noUi-connect" style="left: 20%;">
+                                <div class="noUi-handle noUi-handle-lower">
+                                    <div class="range-label"><span>20</span></div>
+                                </div>
+                            </div>
+                            <div class="noUi-origin noUi-background" style="left: 80%;">
+                                <div class="noUi-handle noUi-handle-upper">
+                                    <div class="range-label"><span>80</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h4>HTML5 Range</h4>
+                    <form>
+                        <p class="range-field">
+                            <input type="range" name="points" min="0" max="100"><span class="thumb"><span class="value"></span></span>
+                        </p>
+                    </form>
+                </div>
+
+                <!-- Date Picker -->
+                <div id="date-picker" class="section scrollspy">
+                    <h2 class="header">Date Picker</h2>
+                    <label for="birthdate">Birthdate</label>
+                    <input id="birthdate" type="text" class="datepicker picker__input" readonly="" tabindex="-1" aria-haspopup="true" aria-expanded="false" aria-readonly="false" aria-owns="birthdate_root">
+                    <div class="picker" id="birthdate_root" tabindex="0" aria-hidden="true">
+                        <div class="picker__holder">
+                            <div class="picker__frame">
+                                <div class="picker__wrap">
+                                    <div class="picker__box">
+                                        <div class="picker__date-display">
+                                            <div class="picker__weekday-display">Wednesday</div>
+                                            <div class="picker__month-display">
+                                                <div>Aug</div>
+                                            </div>
+                                            <div class="picker__day-display">
+                                                <div>3</div>
+                                            </div>
+                                            <div class="picker__year-display">
+                                                <div>2016</div>
+                                            </div>
+                                        </div>
+                                        <div class="picker__calendar-container">
+                                            <div class="picker__header">
+                                                <div class="picker__month">August</div><select class="picker__select--year browser-default" disabled="" aria-controls="birthdate_table" title="Select a year"><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016" selected="">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option><option value="2025">2025</option><option value="2026">2026</option></select>
+                                                <div class="picker__nav--prev" data-nav="-1" role="button" aria-controls="birthdate_table" title="Previous month"> </div>
+                                                <div class="picker__nav--next" data-nav="1" role="button" aria-controls="birthdate_table" title="Next month"> </div>
+                                            </div><table class="picker__table" id="birthdate_table" role="grid" aria-controls="birthdate" aria-readonly="true">
+                                                <thead><tr><th class="picker__weekday" scope="col" title="Sunday">S</th><th class="picker__weekday" scope="col" title="Monday">M</th><th class="picker__weekday" scope="col" title="Tuesday">T</th><th class="picker__weekday" scope="col" title="Wednesday">W</th><th class="picker__weekday" scope="col" title="Thursday">T</th><th class="picker__weekday" scope="col" title="Friday">F</th><th class="picker__weekday" scope="col" title="Saturday">S</th></tr></thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--outfocus" data-pick="1469907000000" role="gridcell" aria-label="31 July, 2016">31</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1469993400000" role="gridcell" aria-label="1 August, 2016">1</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1470079800000" role="gridcell" aria-label="2 August, 2016">2</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus picker__day--today picker__day--highlighted" data-pick="1470166200000" role="gridcell" aria-label="3 August, 2016" aria-activedescendant="true">3</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1470252600000" role="gridcell" aria-label="4 August, 2016">4</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1470339000000" role="gridcell" aria-label="5 August, 2016">5</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1470425400000" role="gridcell" aria-label="6 August, 2016">6</div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1470511800000" role="gridcell" aria-label="7 August, 2016">7</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1470598200000" role="gridcell" aria-label="8 August, 2016">8</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1470684600000" role="gridcell" aria-label="9 August, 2016">9</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1470771000000" role="gridcell" aria-label="10 August, 2016">10</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1470857400000" role="gridcell" aria-label="11 August, 2016">11</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1470943800000" role="gridcell" aria-label="12 August, 2016">12</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1471030200000" role="gridcell" aria-label="13 August, 2016">13</div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1471116600000" role="gridcell" aria-label="14 August, 2016">14</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1471203000000" role="gridcell" aria-label="15 August, 2016">15</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1471289400000" role="gridcell" aria-label="16 August, 2016">16</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1471375800000" role="gridcell" aria-label="17 August, 2016">17</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1471462200000" role="gridcell" aria-label="18 August, 2016">18</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1471548600000" role="gridcell" aria-label="19 August, 2016">19</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1471635000000" role="gridcell" aria-label="20 August, 2016">20</div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1471721400000" role="gridcell" aria-label="21 August, 2016">21</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1471807800000" role="gridcell" aria-label="22 August, 2016">22</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1471894200000" role="gridcell" aria-label="23 August, 2016">23</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1471980600000" role="gridcell" aria-label="24 August, 2016">24</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1472067000000" role="gridcell" aria-label="25 August, 2016">25</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1472153400000" role="gridcell" aria-label="26 August, 2016">26</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1472239800000" role="gridcell" aria-label="27 August, 2016">27</div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1472326200000" role="gridcell" aria-label="28 August, 2016">28</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1472412600000" role="gridcell" aria-label="29 August, 2016">29</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1472499000000" role="gridcell" aria-label="30 August, 2016">30</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--infocus" data-pick="1472585400000" role="gridcell" aria-label="31 August, 2016">31</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--outfocus" data-pick="1472671800000" role="gridcell" aria-label="1 September, 2016">1</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--outfocus" data-pick="1472758200000" role="gridcell" aria-label="2 September, 2016">2</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--outfocus" data-pick="1472844600000" role="gridcell" aria-label="3 September, 2016">3</div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--outfocus" data-pick="1472931000000" role="gridcell" aria-label="4 September, 2016">4</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--outfocus" data-pick="1473017400000" role="gridcell" aria-label="5 September, 2016">5</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--outfocus" data-pick="1473103800000" role="gridcell" aria-label="6 September, 2016">6</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--outfocus" data-pick="1473190200000" role="gridcell" aria-label="7 September, 2016">7</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--outfocus" data-pick="1473276600000" role="gridcell" aria-label="8 September, 2016">8</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--outfocus" data-pick="1473363000000" role="gridcell" aria-label="9 September, 2016">9</div>
+                                                        </td>
+                                                        <td role="presentation">
+                                                            <div class="picker__day picker__day--outfocus" data-pick="1473449400000" role="gridcell" aria-label="10 September, 2016">10</div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="picker__footer">
+                                            <button class="btn-flat picker__today" type="button" data-pick="1470166200000" disabled="" aria-controls="birthdate">Today</button><button class="btn-flat picker__clear" type="button" data-clear="1" disabled="" aria-controls="birthdate">Clear</button><button class="btn-flat picker__close" type="button" data-close="true" disabled="" aria-controls="birthdate">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Character Counter -->
+                <div id="character-counter" class="section scrollspy">
+                    <h2 class="header">Character Counter</h2>
+                    <form>
+                        <div class="row">
+                            <div class="input-field col-md-6">
+                                <input id="input_text" type="text" length="10">
+                                <label for="input_text">Input text</label>
+                                <span class="character-counter" style="float: right; font-size: 12px; height: 1px;"></span>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="input-field col-md-12">
+                                <textarea id="textarea1" class="materialize-textarea" length="120"></textarea>
+                                <label for="textarea1">Textarea</label>
+                                <span class="character-counter" style="float: right; font-size: 12px; height: 1px;"></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Autocomplete -->
+                <div id="autocomplete" class="section scrollspy">
+                    <h2 class="header">Autocomplete</h2>
+                    <div class="row">
+                        <div class="input-field col-md-12">
+                            <i class="material-icons prefix">textsms</i>
+                            <input type="text" id="autocomplete-input" class="autocomplete">
+                            <label for="autocomplete-input">Autocomplete</label>
+                            <ul class="autocomplete-content dropdown-content"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Scripts-->
+    <script type="text/javascript" src="/GlobalItems/js/jquery-1.11.1.min.js"></script>
+    <!--<script src="./Forms - Materialize_files/jquery-2.1.4.min.js"></script>-->
+    <script src="style/form-material.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var slider = document.getElementById('range-input');
+        noUiSlider.create(slider, {
+            start: [20, 80],
+            connect: true,
+            step: 1,
+            range: {
+                'min': 0,
+                'max': 100
+            },
+            format: wNumb({
+                decimals: 0
+            })
+        });
+    </script>
+</body>
+</html>

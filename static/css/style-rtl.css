@@ -3,19 +3,19 @@
     font-family: IRANSans;
     font-style: normal;
     font-weight: normal;
-    src: url('/GlobalItems/fonts/iranSans/eot/IRANSansWeb.eot');
-    src: url('/GlobalItems/fonts/iranSans/eot/IRANSansWeb.eot?#iefix') format('embedded-opentype'), /* IE6-8 */
-    url('/GlobalItems/fonts/iranSans/woff/IRANSansWeb.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
-    url('/GlobalItems/fonts/iranSans/ttf/IRANSansWeb.ttf') format('truetype');
+    src: url('../fonts/iranSans/eot/IRANSansWeb.eot');
+    src: url('../fonts/iranSans/eot/IRANSansWeb.eot?#iefix') format('embedded-opentype'), /* IE6-8 */
+    url('../fonts/iranSans/woff/IRANSansWeb.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('../fonts/iranSans/ttf/IRANSansWeb.ttf') format('truetype');
 }
 @font-face {
     font-family: BIRANSans;
     font-style: normal;
     font-weight: normal;
-    src: url('/GlobalItems/fonts/iranSans/eot/IRANSansWeb_Medium.eot');
-    src: url('/GlobalItems/fonts/iranSans/eot/IRANSansWeb_Medium.eot?#iefix') format('embedded-opentype'), /* IE6-8 */
-    url('/GlobalItems/fonts/iranSans/woff/IRANSansWeb_Medium.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
-    url('/GlobalItems/fonts/iranSans/ttf/IRANSansWeb_Medium.ttf') format('truetype');
+    src: url('../fonts/iranSans/eot/IRANSansWeb_Medium.eot');
+    src: url('../fonts/iranSans/eot/IRANSansWeb_Medium.eot?#iefix') format('embedded-opentype'), /* IE6-8 */
+    url('../fonts/iranSans/woff/IRANSansWeb_Medium.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('../fonts/iranSans/ttf/IRANSansWeb_Medium.ttf') format('truetype');
 }
 
 
@@ -23,11 +23,11 @@
     font-family:"MaterialDesignIcons";
     font-weight:normal;
     font-style:normal;
-    src:url("/GlobalItems/fonts/materialFontIcon/fonts/materialdesignicons-webfont.eot?v=1.8.36");
-    src:url("/GlobalItems/fonts/materialFontIcon/fonts/materialdesignicons-webfont.eot?#iefix&v=1.8.36") format("embedded-opentype"),
-        url("/GlobalItems/fonts/materialFontIcon/fonts/materialdesignicons-webfont.woff?v=1.8.36") format("woff"),
-        url("/GlobalItems/fonts/materialFontIcon/fonts/materialdesignicons-webfont.ttf?v=1.8.36") format("truetype"),
-        url("/GlobalItems/fonts/materialFontIcon/fonts/materialdesignicons-webfont.svg?v=1.8.36#materialdesigniconsregular") format("svg");}
+    src:url("../fonts/materialFontIcon/fonts/materialdesignicons-webfont.eot?v=1.8.36");
+    src:url("../fonts/materialFontIcon/fonts/materialdesignicons-webfont.eot?#iefix&v=1.8.36") format("embedded-opentype"),
+        url("../fonts/materialFontIcon/fonts/materialdesignicons-webfont.woff?v=1.8.36") format("woff"),
+        url("../fonts/materialFontIcon/fonts/materialdesignicons-webfont.ttf?v=1.8.36") format("truetype"),
+        url("../fonts/materialFontIcon/fonts/materialdesignicons-webfont.svg?v=1.8.36#materialdesigniconsregular") format("svg");}
 
 
 /*end font*/

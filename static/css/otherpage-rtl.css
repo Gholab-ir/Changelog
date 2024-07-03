@@ -14,9 +14,12 @@ ul {
     padding: 2px;
 }
 
+.otherPages{
+    padding-top:35px;
+}
+
 .bread-crumb {
     text-align: right;
-    
 }
 
     .bread-crumb ol {
@@ -48,7 +51,7 @@ ul {
                 }
 
             .bread-crumb ol li:last-child a span {
-                color: #fa4949;
+                color: #facc15;
             }
 
                 .bread-crumb ol li:last-child a span:after {
@@ -221,17 +224,16 @@ span.mdi.mdi-home {
 }
 
 .btn-send {
-    -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.3);
-    -moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.3);
-    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.3);
-    background-color: #fa4949;
-    border: medium none;
-    border-radius: 0;
-    color: #fff;
-    margin-bottom: 30px;
-    margin-right: 15px;
-    padding: 7px;
-    text-align: center;
+    position: relative;
+    color: #fcd34d;
+    direction: rtl;
+    font-size: 11pt;
+    background: #1e40af;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    transition: .5s all;
+    text-align:center;
 }
 
     .btn-send:hover {
@@ -277,7 +279,7 @@ span.mdi.mdi-home {
 }
 
 h5, h4, .title {
-    color: #fa4949;
+    color: #1e3a8a;
     display: inline-block;
 }
 
@@ -285,7 +287,7 @@ h5, h4, .title {
     display: block;
     margin-bottom: 10px;
     margin-top: 48px;
-    color: #fa4949;
+    color: #1e3a8a;
     font-size: 13pt;
 }
 
@@ -383,16 +385,17 @@ div.captcha {
 }
 
 .Categories h4 {
-    color: #272933;
+    color: #1e3a8a;
     margin-bottom: 45px;
     position: relative;
     display: inline-block;
     right: 20px;
     font-size: 14pt;
+    transition:.5s all;
 }
 
 .Categories .item:hover h4 {
-    color: #fa4949;
+    color: #fcd34d;
 }
 
 .Categories .item:hover .titr::before {
@@ -409,7 +412,7 @@ div.captcha {
     content: '';
     width: 8px;
     height: 8px;
-    background: #fa4949;
+    background: #fcd34d;
     position: absolute;
     right: -20px;
     top: 7px;
@@ -478,7 +481,7 @@ div.captcha {
                     }
 
                 .paging-model2 .paging > ul > li.active {
-                    background: #fa4949 none repeat scroll 0 0;
+                    background: #fcd34d none repeat scroll 0 0;
                 }
 
     .paging-model2 .dropdown-content li:hover {
@@ -490,7 +493,7 @@ div.captcha {
         }
 
     .paging-model2 .paging > ul > li.active a {
-        color: #fff;
+        color: #1e3a8a;
     }
 
     .paging-model2 .paging .select-wrapper {
@@ -876,7 +879,7 @@ div.captcha {
     }
 
     .btnList .activeBtn::before {
-        color: #fa4949;
+        color: #fcd34d;
         transition: all 0.4s ease 0s;
     }
 
@@ -1064,12 +1067,13 @@ div.captcha {
 }
 
 .topnews {
-    background-color: #fa4949;
+    background-color: #172554;
     padding-top: 26px;
+    margin-top:45px;
 }
 
 .text-news {
-    color: #ffd6d6;
+    color: #fff;
     direction: rtl;
     font-size: 10.05pt;
     line-height: 17pt;
@@ -1116,9 +1120,10 @@ div.captcha {
     }
 
 .titlesection {
-    color: #fff;
+    color: #facc15;
     margin-top: 65px;
     padding-right: 60px;
+    font-size:14pt;
 }
 
 .datenews {
@@ -1146,7 +1151,7 @@ div.captcha {
 
 .NewsDetailsUL li::before {
     content: "\f12e";
-    color: #fa4949;
+    color: #1e3a8a;
     font-family: MaterialDesignIcons;
     font-size: 8px;
     position: relative;
@@ -1328,7 +1333,7 @@ div.captcha {
         }
 
         .sort-list span.selected:after {
-            border-color: #fa4949;
+            border-color: #fcd34d;
         }
 
         .sort-list span:before {
@@ -1341,7 +1346,7 @@ div.captcha {
             width: 8px;
             border-radius: 50%;
             cursor: pointer;
-            background-color: #fa4949;
+            background-color: #fcd34d;
             opacity: 0;
             transition: all 0.3s;
         }

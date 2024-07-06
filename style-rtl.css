@@ -46,6 +46,12 @@ a,a:active,a:hover,a:focus,a:visited{
         
 }
 
+img{
+    max-width:100%;
+    display:block;
+    margin:auto;
+}
+
 /*start head*/
 .head{
     width: 100%;

@@ -1107,6 +1107,7 @@ div.captcha {
 .titlenews {
     color: #fff;
     line-height: 33px;
+    font-size:30px !important;
 }
 
     .titlenews::before {

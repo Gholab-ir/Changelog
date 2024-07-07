@@ -1510,6 +1510,8 @@ div.captcha {
 }
 
 
+
+
 @media (min-width:1200px) {
     .Categories img {
         width: 100%;
@@ -1572,6 +1574,12 @@ div.captcha {
         height: 430px;
         margin: auto;
     }
+}
+@media (max-width: 576px){
+.titlenews{
+    font-size:18px !important;
+}
+    
 }
 
 /*end media */

@@ -1608,6 +1608,9 @@ div.captcha {
     .NewsDetailsUL{
         padding:0 10px;
     }
+    .margint60{
+        margin-top: 10px;
+    }
 }
 
 /*end media */

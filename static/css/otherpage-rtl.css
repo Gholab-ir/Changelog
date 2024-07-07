@@ -1575,6 +1575,17 @@ div.captcha {
         margin: auto;
     }
 }
+@media (max-width: 768px){
+.titlesection{
+    padding-right: 0;
+}
+.text-news{
+     padding: 0;
+}    
+}
+
+
+
 @media (max-width: 576px){
 .titlenews{
     font-size:18px !important;

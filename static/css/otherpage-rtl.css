@@ -1599,7 +1599,9 @@ div.captcha {
     .WrapIcon{
        padding-top: 0;
     }
-    
+    .newsdetailimg{
+        float: none;
+    }
 }
 
 /*end media */

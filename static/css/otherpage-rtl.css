@@ -1595,6 +1595,10 @@ div.captcha {
     object-position: right;
     object-fit: cover;
     }
+
+    .WrapIcon{
+       padding-top: 0;
+    }
     
 }
 

@@ -1602,6 +1602,9 @@ div.captcha {
     .newsdetailimg{
         float: none;
     }
+    .title_ax{
+        margin-top: 20px;
+    }
 }
 
 /*end media */

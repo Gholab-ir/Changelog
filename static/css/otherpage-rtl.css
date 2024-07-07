@@ -1605,6 +1605,9 @@ div.captcha {
     .title_ax{
         margin-top: 20px;
     }
+    .NewsDetailsUL{
+        padding:0 10px;
+    }
 }
 
 /*end media */

@@ -626,6 +626,12 @@ box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.3);
     font-size: 12pt;
     margin: 0 15px;
     text-align: justify;
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+   min-height:50px;	
 }
 .overlay .onvan {
     color: #002559;

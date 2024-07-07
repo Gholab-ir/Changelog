@@ -1590,6 +1590,11 @@ div.captcha {
 .titlenews{
     font-size:18px !important;
 }
+    .banner img{
+    height: 200px;
+    object-position: right;
+    object-fit: cover;
+    }
     
 }
 
